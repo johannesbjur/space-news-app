@@ -1,16 +1,27 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export const ArticleListCell = ({ article }) => {
+    const navigation = useNavigation();
     return (
-        <View style={styles.container}>
-            <Image style={styles.image} source={{ uri: article.imageUrl }} />
+        <Pressable
+            onPress={() =>
+                navigation.navigate("ArticleScreen", { id: article.id })
+            }
+        >
+            <View style={styles.container}>
+                <Image
+                    style={styles.image}
+                    source={{ uri: article.imageUrl }}
+                />
 
-            <View style={styles.textContainer}>
-                <Text style={styles.title}>{article.title}</Text>
-                <Text style={styles.date}>{article.date}</Text>
+                <View style={styles.textContainer}>
+                    <Text style={styles.title}>{article.title}</Text>
+                    <Text style={styles.date}>{article.date}</Text>
+                </View>
             </View>
-        </View>
+        </Pressable>
     );
 };
 

@@ -4,11 +4,10 @@ import { FlatList } from "react-native-gesture-handler";
 import { ArticleListCell } from "./articleListCell";
 
 export const ArticleList = ({ articles }) => {
-    // console.log(articles);
     return (
         <>
             <FlatList
-                style={styles.container}
+                style={styles.flatList}
                 data={articles}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item, index }) => (
@@ -20,5 +19,5 @@ export const ArticleList = ({ articles }) => {
 };
 
 const styles = StyleSheet.create({
-    container: {},
+    flatList: {},
 });

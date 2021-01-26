@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ArticleList } from "../components/articleList";
 
-export const HomeScreen = () => {
+export const FeedScreen = () => {
     const url = "https://test.spaceflightnewsapi.net/api/v2/articles";
     const [articles, setArticles] = useState({});
 
@@ -29,21 +29,35 @@ export const HomeScreen = () => {
     }, []);
 
     return (
-        <View>
-            <View>
-                <Text>Welcome</Text>
-                <Text>Guest</Text>
+        <View style={styles.screenContainer}>
+            <View style={styles.topContainer}>
+                <View style={styles.textContainer}>
+                    <Text>Welcome</Text>
+                    <Text>Guest</Text>
+                </View>
             </View>
-            <ArticleList articles={articles} />
+            <View style={styles.articleListContainer}>
+                <ArticleList articles={articles} />
+            </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
+    screenContainer: {
+        height: "100%",
+        marginTop: 30,
+    },
+    topContainer: {
+        flexDirection: "row",
+        justifyContent: "flex-end",
+    },
+    textContainer: {
+        flexDirection: "column",
+    },
+    articleListContainer: {
+        height: "50%",
+        position: "absolute",
+        bottom: 0,
     },
 });

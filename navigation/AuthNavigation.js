@@ -5,11 +5,11 @@ import { UnauthStack } from "./UnauthStack";
 import { AuthContext } from "../context/AuthContext";
 
 export const AuthNavigation = () => {
-    const { isLoggedIn } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     return (
         <NavigationContainer>
-            {isLoggedIn ? <AuthTab /> : <UnauthStack />}
+            {user ? <AuthTab /> : <UnauthStack />}
         </NavigationContainer>
     );
 };

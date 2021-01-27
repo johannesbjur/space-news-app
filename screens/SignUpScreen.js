@@ -6,10 +6,10 @@ export const SignUpScreen = () => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
 
-    const { setIsLoggedIn } = useContext(AuthContext);
+    const { setIsLoggedIn, signUp } = useContext(AuthContext);
 
     const submit = () => {
-        setIsLoggedIn(true);
+        signUp(name, email);
     };
 
     return (
@@ -28,7 +28,10 @@ export const SignUpScreen = () => {
             <Button title="Continue" onPress={() => submit()} />
             <Button
                 title="Continue as Guest"
-                onPress={() => console.log("Create guest")}
+                onPress={() => {
+                    console.log("Create guest");
+                    submit();
+                }}
             />
         </View>
     );

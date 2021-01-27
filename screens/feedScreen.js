@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { ArticleList } from "../components/articleList";
+import { ArticleList } from "../components/ArticleList";
 
 export const FeedScreen = () => {
     const url = "https://test.spaceflightnewsapi.net/api/v2/articles";

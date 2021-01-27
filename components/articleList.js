@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import { ArticleListCell } from "./articleListCell";
+import { ArticleListCell } from "./ArticleListCell";
 
 export const ArticleList = ({ articles }) => {
     return (

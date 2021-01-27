@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { ArticleList } from "../components/articleList";
 import { createStackNavigator, HeaderTitle } from "@react-navigation/stack";
-import { FeedScreen } from "./feedScreen";
-import { ArticleScreen } from "./articleScreen";
+import { FeedScreen } from "./FeedScreen";
+import { ArticleScreen } from "./ArticleScreen";
 
 const Stack = createStackNavigator();
 

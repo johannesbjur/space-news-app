@@ -7,14 +7,16 @@ const Stack = createStackNavigator();
 
 export const UnauthStack = () => {
     return (
-        <Stack.Navigatior>
-            {/* <Stack.Screen
+        <Stack.Navigator>
+            <Stack.Screen
                 name="SignUpScreen"
                 component={SignUpScreen}
                 options={{
                     headerShown: false,
                 }}
-            /> */}
-        </Stack.Navigatior>
+            />
+        </Stack.Navigator>
     );
 };
+
+const styles = StyleSheet.create({});

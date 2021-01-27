@@ -8,7 +8,7 @@ const Tab = createBottomTabNavigator();
 export const AuthTab = () => {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="Home" components={Home} />
+            <Tab.Screen name="Home" component={Home} />
         </Tab.Navigator>
     );
 };

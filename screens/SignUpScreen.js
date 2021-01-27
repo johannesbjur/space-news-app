@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button, StyleSheet, Text, View, TextInput } from "react-native";
+import { AuthContext } from "../context/AuthContext";
 
 export const SignUpScreen = () => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
 
+    const { setIsLoggedIn } = useContext(AuthContext);
+
+    const submit = () => {
+        setIsLoggedIn(true);
+    };
+
     return (
-        <View>
+        <View style={styles.container}>
             <Text>Sign Up</Text>
             <TextInput
                 placeholder="Enter name"
@@ -18,10 +25,7 @@ export const SignUpScreen = () => {
                 value={email}
                 onChangeText={setEmail}
             />
-            <Button
-                title="Continue"
-                onPress={() => console.log("Create user")}
-            />
+            <Button title="Continue" onPress={() => submit()} />
             <Button
                 title="Continue as Guest"
                 onPress={() => console.log("Create guest")}
@@ -29,3 +33,11 @@ export const SignUpScreen = () => {
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+});

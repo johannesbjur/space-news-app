@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ArticleList } from "../components/ArticleList";
+import { HeaderGreating } from "../components/HeaderGreeting";
 
 export const FeedScreen = () => {
     const url = "https://test.spaceflightnewsapi.net/api/v2/articles";
@@ -31,10 +32,7 @@ export const FeedScreen = () => {
     return (
         <View style={styles.screenContainer}>
             <View style={styles.topContainer}>
-                <View style={styles.textContainer}>
-                    <Text>Welcome</Text>
-                    <Text>Guest</Text>
-                </View>
+                <HeaderGreating />
             </View>
             <View style={styles.articleListContainer}>
                 <ArticleList articles={articles} />

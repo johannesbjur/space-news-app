@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { AuthContext } from '../context/AuthContext'
 
 export const HeaderGreating = () => {
-    // TODO: get user.name from context
+
+    const { user, name } = useContext(AuthContext)
 
     return (
         <View>
             <Text>Welcome</Text>
-            <Text>{}</Text>
+            <Text>{name ? name: "Guest"}</Text>
         </View>
     );
 };

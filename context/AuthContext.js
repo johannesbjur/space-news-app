@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState();
+    const [name, setName] = useState()
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -16,20 +17,33 @@ export const AuthContextProvider = ({ children }) => {
 
     const signUp = async (name = "", email = "") => {
         try {
+
+            // TODO: validate email
+
             await auth.signInAnonymously();
-            // console.log(auth.currentUser.uid);
+
+            setName(name)
+
             db.collection("users").doc(auth.currentUser.uid).set({
                 name: name,
                 email: email,
             });
-            // setIsLoggedIn(true);
         } catch (error) {
             console.log(error);
         }
     };
 
+    const signOut = async () => {
+        try {
+            await auth.signOut() 
+            setName("")
+        }catch(error) {
+            console.log(error)
+        }
+    }
+
     return (
-        <AuthContext.Provider value={{ user, signUp }}>
+        <AuthContext.Provider value={{ user, name, signUp, signOut }}>
             {children}
         </AuthContext.Provider>
     );

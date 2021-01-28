@@ -29,8 +29,7 @@ export const SignUpScreen = () => {
             <Button
                 title="Continue as Guest"
                 onPress={() => {
-                    console.log("Create guest");
-                    submit();
+                    submit()
                 }}
             />
         </View>

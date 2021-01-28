@@ -12,26 +12,40 @@ export const AuthContextProvider = ({ children }) => {
             setUser(user);
         });
 
+        if(user){
+            db.collection("users").doc(auth.currentUser.uid).get().then((doc) => {
+                setName(doc.data().name ? doc.data().name : "")
+            })
+        }
+
         return unsubscribe;
     });
 
     const signUp = async (name = "", email = "") => {
         try {
-
             // TODO: validate email
-
             await auth.signInAnonymously();
-
-            setName(name)
-
-            db.collection("users").doc(auth.currentUser.uid).set({
+            await db.collection("users").doc(auth.currentUser.uid).set({
                 name: name,
-                email: email,
-            });
+                email: email
+            })
+            setName(name)
         } catch (error) {
             console.log(error);
         }
     };
+
+    const updateUserData = async (name, email) => {
+        try {
+            await db.collection("users").doc(auth.currentUser.uid).update({
+                name: name ? name : "",
+                email: email ? email : "",
+            });
+            setName(name)
+        }catch (error) {
+            console.log(error)
+        }
+    }
 
     const signOut = async () => {
         try {
@@ -43,7 +57,7 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ user, name, signUp, signOut }}>
+        <AuthContext.Provider value={{ user, name, signUp, signOut, updateUserData }}>
             {children}
         </AuthContext.Provider>
     );

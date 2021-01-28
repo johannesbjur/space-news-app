@@ -6,7 +6,9 @@ import { AuthContext } from "../context/AuthContext";
 
 export const UserScreen = () => {
 
-    const { user, signOut } = useContext(AuthContext)
+    const { user, signOut, updateUserData } = useContext(AuthContext)
+    const [newName, setNewName] = useState()
+    const [newEmail, setNewEmail] =useState()
 
     return(
         <View>
@@ -15,20 +17,18 @@ export const UserScreen = () => {
                 title="Sign Out"
                 onPress={() => signOut()}
             />
-            {/* <TextInput 
+            <TextInput 
                 placeholder="Name"
-                value={userData}
-                onChangeText={(value) => {
-                }}
-            /> */}
-            {/* <TextInput
+                onChangeText={(value) => setNewName(value)
+                }
+            /> 
+            <TextInput
                 placeholder="Email"
-                value={newEmail}
                 onChangeText={(value) => setNewEmail(value)}
-            /> */}
+            />
             <Button
                  title="Save"
-                 onPress={()=> signUp(newName, newEmail)}
+                 onPress={()=> updateUserData(newName, newEmail)}
             />
         </View>
     )

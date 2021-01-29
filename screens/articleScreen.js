@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, StyleSheet, Text, View, Image } from "react-native";
+import { AuthContext } from "../context/AuthContext";
 
 export const ArticleScreen = ({ route }) => {
     const { id } = route.params;
+    const { saveArticleToDb } = useContext(AuthContext)
 
     const url = `https://test.spaceflightnewsapi.net/api/v2/articles/${id}`;
     const [article, setArticle] = useState({});
@@ -16,6 +18,7 @@ export const ArticleScreen = ({ route }) => {
                     .substring(4);
 
                 setArticle({
+                    id: id,
                     title: json.title,
                     imageUrl: json.imageUrl,
                     date: dateString,
@@ -24,8 +27,14 @@ export const ArticleScreen = ({ route }) => {
                 });
             });
     }, []);
+
+
     return (
         <View>
+            <Button
+                title="Bookmark"
+                onPress={() => saveArticleToDb(article)}
+            />
             <Image style={styles.image} source={{ uri: article.imageUrl }} />
             <Text style={styles.title}>{article.title}</Text>
             <Text style={styles.date}>{article.date}</Text>

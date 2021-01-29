@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { createStackNavigator, HeaderTitle } from "@react-navigation/stack";
 import { FeedScreen } from "./FeedScreen";
 import { ArticleScreen } from "./ArticleScreen";
+import { BookmarkedScreen } from "./BookmarkedScreen";
 
 const Stack = createStackNavigator();
 

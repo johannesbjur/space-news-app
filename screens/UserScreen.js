@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
+import React, { useState, useContext } from "react";
+import { Button, StyleSheet, Text, View, TextInput } from "react-native";
 import { AuthContext } from "../context/AuthContext";
 
 

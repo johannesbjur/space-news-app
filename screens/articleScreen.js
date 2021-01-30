@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, StyleSheet, Text, View, Image } from "react-native";
-import { AuthContext } from "../context/AuthContext";
+import { Button, StyleSheet, Text, View, Image, Pressable } from "react-native";
+import { FireBaseContext } from "../context/FireBaseContext";
+import { FontAwesome } from "@expo/vector-icons";
 
 export const ArticleScreen = ({ route }) => {
     const { id } = route.params;
-    const { saveArticleToDb } = useContext(AuthContext)
+    const { saveArticleToDb } = useContext(FireBaseContext);
 
     const url = `https://test.spaceflightnewsapi.net/api/v2/articles/${id}`;
     const [article, setArticle] = useState({});
@@ -28,13 +29,11 @@ export const ArticleScreen = ({ route }) => {
             });
     }, []);
 
-
     return (
         <View>
-            <Button
-                title="Bookmark"
-                onPress={() => saveArticleToDb(article)}
-            />
+            <Pressable onPress={() => saveArticleToDb(article)}>
+                <FontAwesome name="bookmark-o" size={24} color="black" />
+            </Pressable>
             <Image style={styles.image} source={{ uri: article.imageUrl }} />
             <Text style={styles.title}>{article.title}</Text>
             <Text style={styles.date}>{article.date}</Text>

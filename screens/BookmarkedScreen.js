@@ -3,10 +3,11 @@ import React, { useEffect, useContext, useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { ArticleList } from "../components/ArticleList";
 import { AuthContext } from "../context/AuthContext";
+import { FireBaseContext } from "../context/FireBaseContext";
 
 export const BookmarkedScreen = () => {
     const { updateBookmarkedArticles, bookmarkedArticles } = useContext(
-        AuthContext
+        FireBaseContext
     );
 
     const [articles, setArticles] = useState({});

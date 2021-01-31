@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { useContext } from "react/cjs/react.development";
 import { ArticleList } from "../components/ArticleList";
 import { HeaderGreating } from "../components/HeaderGreeting";
+import { FireBaseContext } from "../context/FireBaseContext";
 
 export const FeedScreen = () => {
     const url = "https://test.spaceflightnewsapi.net/api/v2/articles";
+    const { updateBookmarkedArticles } = useContext(FireBaseContext);
     const [articles, setArticles] = useState({});
 
     useEffect(() => {
+        updateBookmarkedArticles();
         fetch(url)
             .then((response) => response.json())
             .then((json) => {

@@ -12,9 +12,11 @@ export const BookmarkedScreen = () => {
 
     const [articles, setArticles] = useState({});
 
-    useFocusEffect(() => {
-        updateBookmarkedArticles();
-    });
+    useFocusEffect(
+        React.useCallback(() => {
+            updateBookmarkedArticles();
+        })
+    );
 
     return (
         <View style={styles.container}>

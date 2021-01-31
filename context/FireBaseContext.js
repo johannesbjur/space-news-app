@@ -39,6 +39,19 @@ export const FireBaseContextProvider = ({ children }) => {
         }
     };
 
+    const removeArticleFromDb = async (article) => {
+        try {
+            await db
+                .collection("users")
+                .doc(auth.currentUser.uid)
+                .collection("bookmarked")
+                .doc(article.id)
+                .delete();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const updateBookmarkedArticles = (article) => {
         db.collection("users")
             .doc(auth.currentUser.uid)
@@ -67,6 +80,7 @@ export const FireBaseContextProvider = ({ children }) => {
                 saveArticleToDb,
                 updateBookmarkedArticles,
                 bookmarkedArticles,
+                removeArticleFromDb,
             }}
         >
             {children}

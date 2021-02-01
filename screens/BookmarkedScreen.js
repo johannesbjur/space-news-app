@@ -20,6 +20,7 @@ export const BookmarkedScreen = () => {
 
     return (
         <View style={styles.container}>
+            <Text style={styles.title}>Bookmarked</Text>
             <ArticleList articles={bookmarkedArticles} />
         </View>
     );
@@ -29,5 +30,12 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
+    },
+    title: {
+        fontWeight: "bold",
+        fontSize: 40,
+        marginTop: 70,
+        marginLeft: 20,
+        marginBottom: 10,
     },
 });

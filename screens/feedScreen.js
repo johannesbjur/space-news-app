@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
     topContainer: {
         flexDirection: "row",
         justifyContent: "flex-end",
+        marginRight: 20,
+        marginTop: 10,
     },
     textContainer: {
         flexDirection: "column",

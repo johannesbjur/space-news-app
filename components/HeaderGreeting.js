@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { AuthContext } from "../context/AuthContext";
 
 export const HeaderGreating = () => {
-    const { user, name } = useContext(AuthContext);
+    const { name } = useContext(AuthContext);
 
     return (
         <View>

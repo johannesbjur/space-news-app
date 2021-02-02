@@ -2,41 +2,58 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useContext } from "react/cjs/react.development";
 import { ArticleList } from "../components/ArticleList";
+import { ArticleCarousel } from "../components/ArticleCarousel";
 import { HeaderGreating } from "../components/HeaderGreeting";
 import { FireBaseContext } from "../context/FireBaseContext";
 
 export const FeedScreen = () => {
-    const url = "https://test.spaceflightnewsapi.net/api/v2/articles";
+    const articlesUrl = "https://test.spaceflightnewsapi.net/api/v2/articles";
+    const blogsUrl = "https://test.spaceflightnewsapi.net/api/v2/blogs";
     const { updateBookmarkedArticles } = useContext(FireBaseContext);
     const [articles, setArticles] = useState({});
+    const [blogs, setBlogs] = useState({});
 
     useEffect(() => {
         updateBookmarkedArticles();
-        fetch(url)
-            .then((response) => response.json())
-            .then((json) => {
-                var array = [];
-                json.forEach((element) => {
-                    let dateString = new Date(element.publishedAt)
-                        .toDateString()
-                        .substring(4);
-
-                    const item = {
-                        id: element.id,
-                        title: element.title,
-                        date: dateString,
-                        imageUrl: element.imageUrl,
-                    };
-                    array.push(item);
-                });
-                setArticles(array);
-            });
+        setItems();
     }, []);
+
+    const setItems = async () => {
+        setBlogs(await getDataFrom(blogsUrl));
+        setArticles(await getDataFrom(articlesUrl));
+    };
+
+    const getDataFrom = (url) => {
+        return new Promise((resolve, reject) => {
+            fetch(url)
+                .then((response) => response.json())
+                .then((json) => {
+                    var array = [];
+                    json.forEach((element) => {
+                        let dateString = new Date(element.publishedAt)
+                            .toDateString()
+                            .substring(4);
+
+                        const item = {
+                            id: element.id,
+                            title: element.title,
+                            date: dateString,
+                            imageUrl: element.imageUrl,
+                        };
+                        array.push(item);
+                    });
+                    resolve(array);
+                });
+        });
+    };
 
     return (
         <View style={styles.screenContainer}>
             <View style={styles.topContainer}>
                 <HeaderGreating />
+            </View>
+            <View style={styles.carouselContainer}>
+                <ArticleCarousel articles={blogs} />
             </View>
             <View style={styles.articleListContainer}>
                 <ArticleList articles={articles} />
@@ -58,6 +75,12 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         flexDirection: "column",
+    },
+    carouselContainer: {
+        marginTop: 20,
+        marginLeft: 25,
+        width: "100%",
+        height: "40%",
     },
     articleListContainer: {
         height: "50%",

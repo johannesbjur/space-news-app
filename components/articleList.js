@@ -10,9 +10,7 @@ export const ArticleList = ({ articles }) => {
                 style={styles.flatList}
                 data={articles}
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item, index }) => (
-                    <ArticleListCell article={item} />
-                )}
+                renderItem={({ item }) => <ArticleListCell article={item} />}
             />
         </>
     );

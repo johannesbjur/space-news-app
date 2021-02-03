@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import {
-    Button,
     StyleSheet,
     Text,
     View,
@@ -21,7 +20,7 @@ export const SignUpScreen = () => {
     const { setIsLoggedIn, signUp } = useContext(AuthContext);
 
     const submit = () => {
-        signUp(name, email);
+        if (name && email) signUp(name, email);
     };
     const submitGuest = () => {
         signUp("", "");
@@ -35,6 +34,7 @@ export const SignUpScreen = () => {
             />
             <Text style={styles.title}>Sign Up</Text>
             <View style={styles.inputsWrapper}>
+                {/* TODO: make input component and reuse */}
                 <View style={styles.inputContainer}>
                     <FontAwesome5
                         style={styles.inputIcon}
@@ -65,6 +65,7 @@ export const SignUpScreen = () => {
                         onChangeText={setEmail}
                     />
                 </View>
+                {/* TODO: make Button component and reuse */}
                 <View style={styles.btnsContainer}>
                     <Pressable
                         style={styles.btnContainer}

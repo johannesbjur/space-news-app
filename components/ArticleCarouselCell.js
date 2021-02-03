@@ -8,7 +8,10 @@ export const ArticleCarouselCell = ({ article }) => {
     return (
         <Pressable
             onPress={() => {
-                navigation.navigate("ArticleScreen", { id: article.id });
+                navigation.navigate("ArticleScreen", {
+                    id: article.id,
+                    type: "blog",
+                });
             }}
         >
             <View style={styles.container}>

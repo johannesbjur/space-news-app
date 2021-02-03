@@ -17,7 +17,11 @@ export const Home = () => {
                     headerShown: false,
                 }}
             />
-            <Stack.Screen name="ArticleScreen" component={ArticleScreen} />
+            <Stack.Screen
+                name="ArticleScreen"
+                component={ArticleScreen}
+                options={{ headerShown: false }}
+            />
         </Stack.Navigator>
     );
 };

@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Pressable } from "react-native";
+import { View, Pressable } from "react-native";
 import { FireBaseContext } from "../context/FireBaseContext";
-import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export const BookmarkButton = ({ article }) => {
+export const BookmarkButton = ({ article, style }) => {
     const {
         saveArticleToDb,
         bookmarkedArticles,
@@ -18,7 +17,7 @@ export const BookmarkButton = ({ article }) => {
         }
     }, [article]);
     return (
-        <>
+        <View style={style}>
             {isBookmarked ? (
                 <Pressable
                     onPress={() => {
@@ -30,7 +29,7 @@ export const BookmarkButton = ({ article }) => {
                     <MaterialCommunityIcons
                         name="bookmark-check"
                         size={32}
-                        color="black"
+                        color="white"
                     />
                 </Pressable>
             ) : (
@@ -43,10 +42,10 @@ export const BookmarkButton = ({ article }) => {
                     <MaterialCommunityIcons
                         name="bookmark-outline"
                         size={32}
-                        color="black"
+                        color="white"
                     />
                 </Pressable>
             )}
-        </>
+        </View>
     );
 };

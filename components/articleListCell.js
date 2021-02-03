@@ -7,7 +7,10 @@ export const ArticleListCell = ({ article }) => {
     return (
         <Pressable
             onPress={() =>
-                navigation.navigate("ArticleScreen", { id: article.id })
+                navigation.navigate("ArticleScreen", {
+                    id: article.id,
+                    type: "article",
+                })
             }
         >
             <View style={styles.container}>

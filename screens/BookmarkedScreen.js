@@ -21,6 +21,12 @@ export const BookmarkedScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Bookmarked</Text>
+            {bookmarkedArticles.length == 0 ? (
+                <Text style={styles.noItemsMessage}>
+                    No articles bookmarked
+                </Text>
+            ) : null}
+
             <ArticleList articles={bookmarkedArticles} />
         </View>
     );
@@ -37,5 +43,10 @@ const styles = StyleSheet.create({
         marginTop: 70,
         marginLeft: 20,
         marginBottom: 10,
+    },
+    noItemsMessage: {
+        marginTop: 30,
+        color: "grey",
+        alignSelf: "center",
     },
 });

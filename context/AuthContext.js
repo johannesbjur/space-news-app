@@ -6,10 +6,12 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [name, setName] = useState();
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             setUser(user);
+            setIsLoading(false);
         });
 
         if (user) {
@@ -55,6 +57,7 @@ export const AuthContextProvider = ({ children }) => {
                 setName,
                 signUp,
                 signOut,
+                isLoading,
             }}
         >
             {children}

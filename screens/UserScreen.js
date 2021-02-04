@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { AuthContext } from "../context/AuthContext";
 import { FireBaseContext } from "../context/FireBaseContext";
+import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -19,6 +20,15 @@ export const UserScreen = () => {
     const { updateUserData } = useContext(FireBaseContext);
     const [newName, setNewName] = useState();
     const [newEmail, setNewEmail] = useState();
+    const navigation = useNavigation();
+
+    const submit = () => {
+        updateUserData(newName, newEmail);
+        setName(newName);
+        setNewName("");
+        setNewEmail("");
+        navigation.navigate("FeedScreen");
+    };
 
     return (
         <View style={styles.container}>
@@ -42,6 +52,8 @@ export const UserScreen = () => {
                         style={styles.input}
                         placeholder="Name"
                         onChangeText={(value) => setNewName(value)}
+                        value={newName}
+                        onSubmitEditing={() => submit()}
                     />
                 </View>
                 <View style={{ ...styles.inputContainer, marginTop: 10 }}>
@@ -55,14 +67,13 @@ export const UserScreen = () => {
                         style={styles.input}
                         placeholder="Email"
                         onChangeText={(value) => setNewEmail(value)}
+                        value={newEmail}
+                        onSubmitEditing={() => submit()}
                     />
                 </View>
                 <Pressable
                     style={styles.saveBtnContainer}
-                    onPress={() => {
-                        updateUserData(newName, newEmail);
-                        setName(newName);
-                    }}
+                    onPress={() => submit()}
                 >
                     <Text style={styles.saveBtnText}>Save</Text>
                 </Pressable>
@@ -112,6 +123,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         top: 40,
         right: 20,
+        zIndex: 99,
     },
     saveBtnContainer: {
         marginTop: 40,

@@ -6,12 +6,12 @@ export const ArticleListCell = ({ article }) => {
     const navigation = useNavigation();
     return (
         <Pressable
-            onPress={() =>
+            onPress={() => {
                 navigation.navigate("ArticleScreen", {
                     id: article.id,
-                    type: "article",
-                })
-            }
+                    type: article.type,
+                });
+            }}
         >
             <View style={styles.container}>
                 <Image

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button, StyleSheet, Text, View, Image, Pressable } from "react-native";
-import { FireBaseContext } from "../context/FireBaseContext";
 import { BookmarkButton } from "../components/BookmarkButton";
 import { useNavigation } from "@react-navigation/native";
 import { ScrollView } from "react-native-gesture-handler";
@@ -9,7 +8,6 @@ import { LinearGradient } from "expo-linear-gradient";
 
 export const ArticleScreen = ({ route }) => {
     const { id, type } = route.params;
-    const { bookmarkedArticles } = useContext(FireBaseContext);
     const [article, setArticle] = useState({});
     const navigation = useNavigation();
 
@@ -43,6 +41,7 @@ export const ArticleScreen = ({ route }) => {
                     date: dateString,
                     body: json.summary,
                     articleUrl: json.url,
+                    type: type,
                 });
             });
     }, []);

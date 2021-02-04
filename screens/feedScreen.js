@@ -19,11 +19,11 @@ export const FeedScreen = () => {
     }, []);
 
     const setItems = async () => {
-        setBlogs(await getDataFrom(blogsUrl));
-        setArticles(await getDataFrom(articlesUrl));
+        setBlogs(await getDataFrom(blogsUrl, "blog"));
+        setArticles(await getDataFrom(articlesUrl, "article"));
     };
 
-    const getDataFrom = (url) => {
+    const getDataFrom = (url, type) => {
         return new Promise((resolve, reject) => {
             fetch(url)
                 .then((response) => response.json())
@@ -39,6 +39,7 @@ export const FeedScreen = () => {
                             title: element.title,
                             date: dateString,
                             imageUrl: element.imageUrl,
+                            type: type,
                         };
                         array.push(item);
                     });

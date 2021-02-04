@@ -1,8 +1,7 @@
-import { useFocusEffect, useIsFocused } from "@react-navigation/native";
-import React, { useEffect, useContext, useState } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
+import React, { useContext } from "react";
+import { StyleSheet, Text, View } from "react-native";
 import { ArticleList } from "../components/ArticleList";
-import { AuthContext } from "../context/AuthContext";
 import { FireBaseContext } from "../context/FireBaseContext";
 
 export const BookmarkedScreen = () => {
@@ -10,12 +9,10 @@ export const BookmarkedScreen = () => {
         FireBaseContext
     );
 
-    const [articles, setArticles] = useState({});
-
     useFocusEffect(
         React.useCallback(() => {
             updateBookmarkedArticles();
-        })
+        }, [])
     );
 
     return (
@@ -25,9 +22,9 @@ export const BookmarkedScreen = () => {
                 <Text style={styles.noItemsMessage}>
                     No articles bookmarked
                 </Text>
-            ) : null}
-
-            <ArticleList articles={bookmarkedArticles} />
+            ) : (
+                <ArticleList articles={bookmarkedArticles} />
+            )}
         </View>
     );
 };

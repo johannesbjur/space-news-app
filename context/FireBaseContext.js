@@ -33,6 +33,7 @@ export const FireBaseContextProvider = ({ children }) => {
                     title: article.title,
                     date: article.date,
                     imageUrl: article.imageUrl,
+                    type: article.type,
                 });
         } catch (error) {
             console.log(error);
@@ -52,7 +53,7 @@ export const FireBaseContextProvider = ({ children }) => {
         }
     };
 
-    const updateBookmarkedArticles = (article) => {
+    const updateBookmarkedArticles = () => {
         db.collection("users")
             .doc(auth.currentUser.uid)
             .collection("bookmarked")

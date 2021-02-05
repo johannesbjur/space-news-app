@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useContext } from 'react/cjs/react.development';
 import { ArticleList } from '../components/ArticleList';
 import { ArticleCarousel } from '../components/ArticleCarousel';
@@ -16,6 +16,7 @@ export const FeedScreen = () => {
     useEffect(() => {
         updateBookmarkedArticles();
         setItems();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const setItems = async () => {

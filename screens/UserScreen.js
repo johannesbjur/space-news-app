@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import {
-    Button,
     Image,
     StyleSheet,
     Text,
@@ -16,7 +15,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const UserScreen = () => {
-    const { user, signOut, setName } = useContext(AuthContext);
+    const { signOut, setName } = useContext(AuthContext);
     const { updateUserData } = useContext(FireBaseContext);
     const [newName, setNewName] = useState();
     const [newEmail, setNewEmail] = useState();

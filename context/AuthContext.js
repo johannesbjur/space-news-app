@@ -9,8 +9,8 @@ export const AuthContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => {
-            setUser(user);
+        const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
+            setUser(firebaseUser);
             setIsLoading(false);
         });
 
@@ -26,15 +26,15 @@ export const AuthContextProvider = ({ children }) => {
         return unsubscribe;
     });
 
-    const signUp = async (name = '', email = '') => {
+    const signUp = async (nameInput = '', emailInput = '') => {
         try {
             // TODO: validate email
             await auth.signInAnonymously();
             await db.collection('users').doc(auth.currentUser.uid).set({
-                name: name,
-                email: email,
+                name: nameInput,
+                email: emailInput,
             });
-            setName(name);
+            setName(nameInput);
         } catch (error) {
             console.log(error);
         }

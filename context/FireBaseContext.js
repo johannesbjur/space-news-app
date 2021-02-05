@@ -1,9 +1,10 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 import { auth, db } from '../firebase';
 
 export const FireBaseContext = createContext();
 
 export const FireBaseContextProvider = ({ children }) => {
+    // eslint-disable-next-line no-unused-vars
     const [name, setName] = useState();
     const [bookmarkedArticles, setBookmarkedArticles] = useState();
 

@@ -15,7 +15,7 @@ export const BookmarkButton = ({ article, style }) => {
         if (bookmarkedArticles.find((item) => item.id === article.id)) {
             setIsBookmarked(true);
         }
-    }, [article]);
+    }, [article, bookmarkedArticles]);
     return (
         <View style={style}>
             {isBookmarked ? (

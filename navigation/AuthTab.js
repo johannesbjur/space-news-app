@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 import { Home } from '../screens/Home';
 import { UserScreen } from '../screens/UserScreen';
 import { BookmarkedScreen } from '../screens/BookmarkedScreen';
@@ -64,5 +63,3 @@ export const AuthTab = () => {
         </FireBaseContextProvider>
     );
 };
-
-const styles = StyleSheet.create({});

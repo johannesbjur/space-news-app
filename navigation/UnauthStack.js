@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SignUpScreen } from '../screens/SignUpScreen';
 
@@ -18,5 +17,3 @@ export const UnauthStack = () => {
         </Stack.Navigator>
     );
 };
-
-const styles = StyleSheet.create({});

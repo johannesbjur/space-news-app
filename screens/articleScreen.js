@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, View, Image, Pressable } from 'react-native';
+/* eslint-disable indent */
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { BookmarkButton } from '../components/BookmarkButton';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -13,9 +14,9 @@ export const ArticleScreen = ({ route }) => {
 
     const articleUrl = `https://test.spaceflightnewsapi.net/api/v2/articles/${id}`;
     const blogUrl = `https://test.spaceflightnewsapi.net/api/v2/blogs/${id}`;
-    let url;
 
     useEffect(() => {
+        let url;
         switch (type) {
             case 'article':
                 url = articleUrl;
@@ -44,6 +45,7 @@ export const ArticleScreen = ({ route }) => {
                     type: type,
                 });
             });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

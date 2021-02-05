@@ -11,13 +11,12 @@ import { AuthContext } from '../context/AuthContext';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Dimensions } from 'react-native';
-import { color, sub } from 'react-native-reanimated';
 
 export const SignUpScreen = () => {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
 
-    const { setIsLoggedIn, signUp } = useContext(AuthContext);
+    const { signUp } = useContext(AuthContext);
 
     const submit = () => {
         if (name && email) signUp(name, email);

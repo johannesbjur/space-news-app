@@ -18,7 +18,7 @@ export const BookmarkedScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Bookmarked</Text>
-            {bookmarkedArticles.length == 0 ? (
+            {!bookmarkedArticles || bookmarkedArticles.length == 0 ? (
                 <Text style={styles.noItemsMessage}>
                     No articles bookmarked
                 </Text>

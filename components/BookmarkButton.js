@@ -22,7 +22,6 @@ export const BookmarkButton = ({ article, style }) => {
                 <Pressable
                     onPress={() => {
                         removeArticleFromDb(article);
-
                         setIsBookmarked(false);
                     }}
                 >

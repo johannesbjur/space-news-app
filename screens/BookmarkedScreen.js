@@ -1,8 +1,8 @@
-import { useFocusEffect } from "@react-navigation/native";
-import React, { useContext } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { ArticleList } from "../components/ArticleList";
-import { FireBaseContext } from "../context/FireBaseContext";
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useContext } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { ArticleList } from '../components/ArticleList';
+import { FireBaseContext } from '../context/FireBaseContext';
 
 export const BookmarkedScreen = () => {
     const { updateBookmarkedArticles, bookmarkedArticles } = useContext(
@@ -31,11 +31,11 @@ export const BookmarkedScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: "100%",
-        height: "100%",
+        width: '100%',
+        height: '100%',
     },
     title: {
-        fontWeight: "bold",
+        fontWeight: 'bold',
         fontSize: 40,
         marginTop: 70,
         marginLeft: 20,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     },
     noItemsMessage: {
         marginTop: 30,
-        color: "grey",
-        alignSelf: "center",
+        color: 'grey',
+        alignSelf: 'center',
     },
 });

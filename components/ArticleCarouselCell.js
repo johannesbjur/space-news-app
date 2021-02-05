@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React, { useEffect, useState } from 'react';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export const ArticleCarouselCell = ({ article }) => {
     const navigation = useNavigation();
@@ -8,9 +8,9 @@ export const ArticleCarouselCell = ({ article }) => {
     return (
         <Pressable
             onPress={() => {
-                navigation.navigate("ArticleScreen", {
+                navigation.navigate('ArticleScreen', {
                     id: article.id,
-                    type: "blog",
+                    type: 'blog',
                 });
             }}
         >
@@ -33,12 +33,12 @@ const styles = StyleSheet.create({
         marginRight: 40,
     },
     image: {
-        height: "75%",
-        width: "100%",
+        height: '75%',
+        width: '100%',
         borderRadius: 20,
     },
     title: {
-        fontWeight: "bold",
+        fontWeight: 'bold',
         fontSize: 20,
     },
 });

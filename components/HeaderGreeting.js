@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { AuthContext } from "../context/AuthContext";
+import React, { useEffect, useState, useContext } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { AuthContext } from '../context/AuthContext';
 
 export const HeaderGreating = () => {
     const { name } = useContext(AuthContext);
@@ -8,7 +8,7 @@ export const HeaderGreating = () => {
     return (
         <View>
             <Text style={styles.greeting}>Welcome</Text>
-            <Text style={styles.name}>{name ? name : "Guest"}</Text>
+            <Text style={styles.name}>{name ? name : 'Guest'}</Text>
         </View>
     );
 };
@@ -16,13 +16,13 @@ export const HeaderGreating = () => {
 const styles = StyleSheet.create({
     name: {
         fontSize: 30,
-        fontWeight: "bold",
+        fontWeight: 'bold',
         marginTop: -5,
     },
     greeting: {
-        color: "grey",
-        fontWeight: "bold",
+        color: 'grey',
+        fontWeight: 'bold',
         fontSize: 20,
-        alignSelf: "flex-end",
+        alignSelf: 'flex-end',
     },
 });

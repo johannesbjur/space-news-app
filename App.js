@@ -1,7 +1,7 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { AuthContextProvider } from "./context/AuthContext";
-import { AuthNavigation } from "./navigation/AuthNavigation";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { AuthContextProvider } from './context/AuthContext';
+import { AuthNavigation } from './navigation/AuthNavigation';
 
 export default function App() {
     return (

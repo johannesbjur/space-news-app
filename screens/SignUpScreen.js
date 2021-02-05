@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext } from 'react';
 import {
     StyleSheet,
     Text,
@@ -6,12 +6,12 @@ import {
     TextInput,
     Image,
     Pressable,
-} from "react-native";
-import { AuthContext } from "../context/AuthContext";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { Dimensions } from "react-native";
-import { color, sub } from "react-native-reanimated";
+} from 'react-native';
+import { AuthContext } from '../context/AuthContext';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Dimensions } from 'react-native';
+import { color, sub } from 'react-native-reanimated';
 
 export const SignUpScreen = () => {
     const [name, setName] = useState();
@@ -23,14 +23,14 @@ export const SignUpScreen = () => {
         if (name && email) signUp(name, email);
     };
     const submitGuest = () => {
-        signUp("", "");
+        signUp('', '');
     };
 
     return (
         <View style={styles.container}>
             <Image
                 style={styles.backgroundVideo}
-                source={require("../assets/rocket.png")}
+                source={require('../assets/rocket.png')}
             />
             <Text style={styles.title}>Sign Up</Text>
             <View style={styles.inputsWrapper}>
@@ -38,14 +38,14 @@ export const SignUpScreen = () => {
                 <View style={styles.inputContainer}>
                     <FontAwesome5
                         style={styles.inputIcon}
-                        name="user"
+                        name='user'
                         size={24}
-                        color="white"
+                        color='white'
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder="Name"
-                        placeholderTextColor={"white"}
+                        placeholder='Name'
+                        placeholderTextColor={'white'}
                         value={name}
                         onChangeText={setName}
                     />
@@ -53,14 +53,14 @@ export const SignUpScreen = () => {
                 <View style={styles.inputContainer}>
                     <MaterialCommunityIcons
                         style={styles.inputIcon}
-                        name="email-outline"
+                        name='email-outline'
                         size={24}
-                        color="white"
+                        color='white'
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder="Email"
-                        placeholderTextColor={"white"}
+                        placeholder='Email'
+                        placeholderTextColor={'white'}
                         value={email}
                         onChangeText={setEmail}
                     />
@@ -90,54 +90,54 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     backgroundVideo: {
-        position: "absolute",
-        width: Dimensions.get("window").width,
-        height: Dimensions.get("window").height,
+        position: 'absolute',
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
         top: 0,
         left: 0,
     },
     title: {
-        color: "white",
-        fontWeight: "bold",
+        color: 'white',
+        fontWeight: 'bold',
         fontSize: 40,
-        alignSelf: "center",
-        marginTop: "25%",
-        marginBottom: "30%",
+        alignSelf: 'center',
+        marginTop: '25%',
+        marginBottom: '30%',
     },
     inputsWrapper: {
-        alignItems: "center",
+        alignItems: 'center',
     },
     inputContainer: {
-        flexDirection: "row",
-        borderBottomColor: "white",
+        flexDirection: 'row',
+        borderBottomColor: 'white',
         borderBottomWidth: 2,
-        alignItems: "center",
+        alignItems: 'center',
         height: 40,
         marginBottom: 30,
     },
     input: {
-        color: "white",
+        color: 'white',
         width: 150,
         fontSize: 15,
-        fontWeight: "bold",
+        fontWeight: 'bold',
     },
     inputIcon: {
         marginRight: 10,
         marginLeft: 10,
     },
     btnContainer: {
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
         width: 200,
         height: 50,
-        backgroundColor: "white",
+        backgroundColor: 'white',
         borderRadius: 20,
         marginTop: 25,
     },
     btnText: {
-        fontWeight: "bold",
+        fontWeight: 'bold',
         fontSize: 15,
-        color: "#63A3FF",
+        color: '#63A3FF',
     },
     btnsContainer: {
         marginTop: 20,

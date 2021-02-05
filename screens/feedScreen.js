@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { useContext } from "react/cjs/react.development";
-import { ArticleList } from "../components/ArticleList";
-import { ArticleCarousel } from "../components/ArticleCarousel";
-import { HeaderGreating } from "../components/HeaderGreeting";
-import { FireBaseContext } from "../context/FireBaseContext";
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { useContext } from 'react/cjs/react.development';
+import { ArticleList } from '../components/ArticleList';
+import { ArticleCarousel } from '../components/ArticleCarousel';
+import { HeaderGreating } from '../components/HeaderGreeting';
+import { FireBaseContext } from '../context/FireBaseContext';
 
 export const FeedScreen = () => {
-    const articlesUrl = "https://test.spaceflightnewsapi.net/api/v2/articles";
-    const blogsUrl = "https://test.spaceflightnewsapi.net/api/v2/blogs";
+    const articlesUrl = 'https://test.spaceflightnewsapi.net/api/v2/articles';
+    const blogsUrl = 'https://test.spaceflightnewsapi.net/api/v2/blogs';
     const { updateBookmarkedArticles } = useContext(FireBaseContext);
     const [articles, setArticles] = useState({});
     const [blogs, setBlogs] = useState({});
@@ -19,8 +19,8 @@ export const FeedScreen = () => {
     }, []);
 
     const setItems = async () => {
-        setBlogs(await getDataFrom(blogsUrl, "blog"));
-        setArticles(await getDataFrom(articlesUrl, "article"));
+        setBlogs(await getDataFrom(blogsUrl, 'blog'));
+        setArticles(await getDataFrom(articlesUrl, 'article'));
     };
 
     const getDataFrom = (url, type) => {
@@ -65,27 +65,27 @@ export const FeedScreen = () => {
 
 const styles = StyleSheet.create({
     screenContainer: {
-        height: "100%",
+        height: '100%',
         marginTop: 30,
     },
     topContainer: {
-        flexDirection: "row",
-        justifyContent: "flex-end",
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
         marginRight: 20,
         marginTop: 10,
     },
     textContainer: {
-        flexDirection: "column",
+        flexDirection: 'column',
     },
     carouselContainer: {
         marginTop: 20,
         marginLeft: 25,
-        width: "100%",
-        height: "40%",
+        width: '100%',
+        height: '40%',
     },
     articleListContainer: {
-        height: "50%",
-        position: "absolute",
+        height: '50%',
+        position: 'absolute',
         bottom: 0,
     },
 });

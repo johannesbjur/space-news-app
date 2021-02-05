@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Button, StyleSheet, Text, View, Image, Pressable } from "react-native";
-import { BookmarkButton } from "../components/BookmarkButton";
-import { useNavigation } from "@react-navigation/native";
-import { ScrollView } from "react-native-gesture-handler";
-import { Ionicons } from "@expo/vector-icons";
-import { LinearGradient } from "expo-linear-gradient";
+import React, { useContext, useEffect, useState } from 'react';
+import { Button, StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { BookmarkButton } from '../components/BookmarkButton';
+import { useNavigation } from '@react-navigation/native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export const ArticleScreen = ({ route }) => {
     const { id, type } = route.params;
@@ -17,10 +17,10 @@ export const ArticleScreen = ({ route }) => {
 
     useEffect(() => {
         switch (type) {
-            case "article":
+            case 'article':
                 url = articleUrl;
                 break;
-            case "blog":
+            case 'blog':
                 url = blogUrl;
                 break;
             default:
@@ -50,15 +50,15 @@ export const ArticleScreen = ({ route }) => {
         <View>
             <LinearGradient
                 style={styles.greyLayer}
-                colors={["rgba(0,0,0,0.8)", "transparent"]}
+                colors={['rgba(0,0,0,0.8)', 'transparent']}
             />
             <Pressable
                 style={styles.backBtn}
                 onPress={() => {
-                    navigation.navigate("FeedScreen");
+                    navigation.navigate('FeedScreen');
                 }}
             >
-                <Ionicons name="chevron-back-outline" size={34} color="white" />
+                <Ionicons name='chevron-back-outline' size={34} color='white' />
             </Pressable>
             <BookmarkButton style={styles.bookBtn} article={article} />
             <Image style={styles.image} source={{ uri: article.imageUrl }} />
@@ -76,54 +76,54 @@ export const ArticleScreen = ({ route }) => {
 const styles = StyleSheet.create({
     container: {},
     topBar: {
-        position: "absolute",
-        flexDirection: "row",
-        width: "100%",
-        alignItems: "flex-end",
+        position: 'absolute',
+        flexDirection: 'row',
+        width: '100%',
+        alignItems: 'flex-end',
     },
     image: {
-        position: "absolute",
+        position: 'absolute',
         top: 0,
         left: 0,
-        width: "100%",
+        width: '100%',
         height: 300,
     },
     title: {
         fontSize: 30,
-        fontWeight: "bold",
+        fontWeight: 'bold',
         marginBottom: 10,
     },
     date: {
-        color: "grey",
-        fontWeight: "bold",
+        color: 'grey',
+        fontWeight: 'bold',
         marginBottom: 10,
     },
     body: {
         lineHeight: 20,
     },
     backBtn: {
-        position: "absolute",
+        position: 'absolute',
         left: 20,
         top: 30,
         width: 50,
         zIndex: 99,
     },
     bookBtn: {
-        position: "absolute",
+        position: 'absolute',
         right: 20,
         top: 30,
         zIndex: 99,
     },
     textContainer: {
         marginTop: 270,
-        backgroundColor: "white",
+        backgroundColor: 'white',
         borderTopEndRadius: 30,
         borderTopLeftRadius: 30,
         padding: 30,
     },
     greyLayer: {
-        width: "100%",
-        position: "absolute",
+        width: '100%',
+        position: 'absolute',
         top: 0,
         left: 0,
         zIndex: 98,

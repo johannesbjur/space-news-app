@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import { View, Pressable } from "react-native";
-import { FireBaseContext } from "../context/FireBaseContext";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { useContext, useEffect, useState } from 'react';
+import { View, Pressable } from 'react-native';
+import { FireBaseContext } from '../context/FireBaseContext';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const BookmarkButton = ({ article, style }) => {
     const {
@@ -26,9 +26,9 @@ export const BookmarkButton = ({ article, style }) => {
                     }}
                 >
                     <MaterialCommunityIcons
-                        name="bookmark-check"
+                        name='bookmark-check'
                         size={32}
-                        color="white"
+                        color='white'
                     />
                 </Pressable>
             ) : (
@@ -39,9 +39,9 @@ export const BookmarkButton = ({ article, style }) => {
                     }}
                 >
                     <MaterialCommunityIcons
-                        name="bookmark-outline"
+                        name='bookmark-outline'
                         size={32}
-                        color="white"
+                        color='white'
                     />
                 </Pressable>
             )}

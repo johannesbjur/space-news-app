@@ -1,13 +1,13 @@
-import React from "react";
-import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export const ArticleListCell = ({ article }) => {
     const navigation = useNavigation();
     return (
         <Pressable
             onPress={() => {
-                navigation.navigate("ArticleScreen", {
+                navigation.navigate('ArticleScreen', {
                     id: article.id,
                     type: article.type,
                 });
@@ -30,17 +30,17 @@ export const ArticleListCell = ({ article }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
+        flexDirection: 'row',
         padding: 20,
     },
     textContainer: {
-        justifyContent: "center",
+        justifyContent: 'center',
         marginLeft: 20,
-        width: "65%",
+        width: '65%',
     },
     title: {
         fontSize: 20,
-        fontWeight: "bold",
+        fontWeight: 'bold',
     },
     image: {
         width: 90,
@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     date: {
-        color: "grey",
+        color: 'grey',
     },
 });

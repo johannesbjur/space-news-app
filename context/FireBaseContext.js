@@ -1,5 +1,5 @@
-import React, { createContext, useState, useEffect } from "react";
-import { auth, db } from "../firebase";
+import React, { createContext, useState, useEffect } from 'react';
+import { auth, db } from '../firebase';
 
 export const FireBaseContext = createContext();
 
@@ -10,11 +10,11 @@ export const FireBaseContextProvider = ({ children }) => {
     const updateUserData = async (name, email) => {
         try {
             await db
-                .collection("users")
+                .collection('users')
                 .doc(auth.currentUser.uid)
                 .update({
-                    name: name ? name : "",
-                    email: email ? email : "",
+                    name: name ? name : '',
+                    email: email ? email : '',
                 });
             setName(name);
         } catch (error) {
@@ -25,9 +25,9 @@ export const FireBaseContextProvider = ({ children }) => {
     const saveArticleToDb = async (article) => {
         try {
             await db
-                .collection("users")
+                .collection('users')
                 .doc(auth.currentUser.uid)
-                .collection("bookmarked")
+                .collection('bookmarked')
                 .doc(article.id)
                 .set({
                     title: article.title,
@@ -43,9 +43,9 @@ export const FireBaseContextProvider = ({ children }) => {
     const removeArticleFromDb = async (article) => {
         try {
             await db
-                .collection("users")
+                .collection('users')
                 .doc(auth.currentUser.uid)
-                .collection("bookmarked")
+                .collection('bookmarked')
                 .doc(article.id)
                 .delete();
         } catch (error) {
@@ -54,9 +54,9 @@ export const FireBaseContextProvider = ({ children }) => {
     };
 
     const updateBookmarkedArticles = () => {
-        db.collection("users")
+        db.collection('users')
             .doc(auth.currentUser.uid)
-            .collection("bookmarked")
+            .collection('bookmarked')
             .get()
             .then((snapshot) => {
                 var array = [];
@@ -70,7 +70,7 @@ export const FireBaseContextProvider = ({ children }) => {
                 setBookmarkedArticles(array);
             })
             .catch(function (error) {
-                console.log("Error getting documents: ", error);
+                console.log('Error getting documents: ', error);
             });
     };
 
